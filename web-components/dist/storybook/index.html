@@ -1,0 +1,165 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><title>Webpack App</title><meta name="viewport" content="width=device-width,initial-scale=1"/><style>html, body {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  * {
+    box-sizing: border-box;
+  }</style><script>/* globals window */
+  /* eslint-disable no-underscore-dangle */
+  try {
+    if (window.top !== window) {
+      window.__REACT_DEVTOOLS_GLOBAL_HOOK__ = window.top.__REACT_DEVTOOLS_GLOBAL_HOOK__;
+    }
+  } catch (e) {
+    // eslint-disable-next-line no-console
+    console.warn('unable to connect to top frame for connecting dev tools');
+  }
+
+  window.onerror = function onerror(message, source, line, column, err) {
+    if (window.CONFIG_TYPE !== 'DEVELOPMENT') return;
+    // eslint-disable-next-line no-var, vars-on-top
+    var xhr = new window.XMLHttpRequest();
+    xhr.open('POST', '/runtime-error');
+    xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+    xhr.send(
+      JSON.stringify({
+        /* eslint-disable object-shorthand */
+        message: message,
+        source: source,
+        line: line,
+        column: column,
+        error: err && { message: err.message, name: err.name, stack: err.stack },
+        origin: 'manager',
+        /* eslint-enable object-shorthand */
+      })
+    );
+  };</script><link rel="shortcut icon" href="/favicon.ico"/><link rel="icon" type="image/png" href="/favicon.png" sizes="192x192"/><link href="/shell.css" rel="stylesheet"/><style>/*
+   * Heads Up!
+   * Keep this in sync with the styles in apps/public-docsite-v9/.storybook/manager-head.html
+   */
+  @font-face {
+    font-family: 'Segoe UI';
+    src: local('Segoe UI Light'),
+      url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/light/latest.woff2) format('woff2'),
+      url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/light/latest.woff) format('woff'),
+      url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/light/latest.ttf) format('truetype');
+    font-weight: 100;
+  }
+
+  @font-face {
+    font-family: 'Segoe UI';
+    src: local('Segoe UI Semilight'),
+      url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/semilight/latest.woff2) format('woff2'),
+      url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/semilight/latest.woff) format('woff'),
+      url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/semilight/latest.ttf) format('truetype');
+    font-weight: 200;
+  }
+
+  @font-face {
+    font-family: 'Segoe UI';
+    src: local('Segoe UI'),
+      url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/normal/latest.woff2) format('woff2'),
+      url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/normal/latest.woff) format('woff'),
+      url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/normal/latest.ttf) format('truetype');
+    font-weight: 400;
+  }
+
+  @font-face {
+    font-family: 'Segoe UI';
+    src: local('Segoe UI Semibold'),
+      url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/semibold/latest.woff2) format('woff2'),
+      url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/semibold/latest.woff) format('woff'),
+      url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/semibold/latest.ttf) format('truetype');
+    font-weight: 600;
+  }
+
+  @font-face {
+    font-family: 'Segoe UI';
+    src: local('Segoe UI Bold'),
+      url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/bold/latest.woff2) format('woff2'),
+      url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/bold/latest.woff) format('woff'),
+      url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/bold/latest.ttf) format('truetype');
+    font-weight: 700;
+  }
+
+  #storybook-explorer-searchfield {
+    font-weight: 400 !important;
+    font-size: 14px !important;
+    letter-spacing: -0.01em !important;
+    line-height: 14px !important;
+  }
+
+  .sidebar-item svg,
+  .sidebar-svg-icon {
+    color: #11100f !important;
+  }
+
+  .sidebar-item[data-selected='true'] svg,
+  .sidebar-item[data-selected='true'] .sidebar-svg-icon {
+    color: #ffffff !important;
+  }
+
+  .sidebar-subheading {
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    letter-spacing: 0px !important;
+    line-height: 24px !important;
+    text-transform: none !important;
+    color: #11100f !important;
+  }
+
+  .sidebar-item {
+    font-weight: 400 !important;
+    font-size: 14px !important;
+    letter-spacing: -0.01em !important;
+    line-height: 14px !important;
+    color: #11100f !important;
+  }
+
+  .sidebar-item[data-selected='true'] {
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    letter-spacing: -0.01em !important;
+    line-height: 14px !important;
+    color: #ffffff !important;
+  }
+
+  /*
+    * Hides "Addons" button from mobile view nav.
+    */
+  nav > button:last-child {
+    display: none;
+  }
+
+  /*
+    Storybook has proposed a feature for this in https://github.com/storybookjs/storybook/issues/9209
+    which will configure stories to exist in deeplink URL format, but do not appear in the nav tree or the docs page
+    Usign suggested temporary workaround until storybook gets proper support
+    See https://github.com/microsoft/fluentui/blob/master/rfcs/convergence/authoring-stories.md#10-internal-stories-for-testing
+    */
+  [id*='accessibility-stories'] {
+    display: none !important;
+  }</style><style>#root[hidden],
+      #docs-root[hidden] {
+        display: none !important;
+      }</style></head><body><div id="root"></div><div id="docs-root"></div><script>window['CONFIG_TYPE'] = "PRODUCTION";
+          
+      
+          
+            window['LOGLEVEL'] = "info";
+          
+      
+          
+            window['FEATURES'] = {"postcss":true,"emotionAlias":false,"warnOnLegacyHierarchySeparator":true,"buildStoriesJson":false,"storyStoreV7":false,"modernInlineRender":false,"breakingChangesV7":false,"interactionsDebugger":false,"babelModeV7":false,"argTypeTargetsV7":false,"previewMdx2":false};
+          
+      
+          
+      
+          
+      
+          
+            window['DOCS_MODE'] = true;</script><script src="runtime~main.dbf00b470fe610082919.manager.bundle.js"></script><script src="761.f82f43e0883f09364165.manager.bundle.js"></script><script src="main.c0d883c2160408d5fde5.manager.bundle.js"></script></body></html>

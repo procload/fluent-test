@@ -1,0 +1,1 @@
+{"version":3,"file":"checkbox.js","sourceRoot":"","sources":["../../../src/checkbox/checkbox.ts"],"names":[],"mappings":";;;;;;AAAA,OAAO,EAAE,IAAI,EAAE,MAAM,yBAAyB,CAAC;AAC/C,OAAO,EAAE,YAAY,EAAE,MAAM,wCAAwC,CAAC;AAGtE;;;GAGG;AACH,MAAM,OAAO,QAAS,SAAQ,YAAY;CAiCzC;AAvBC;IADC,IAAI;uCACwB;AAW7B;IADC,IAAI;sCACsB;AAW3B;IADC,IAAI,CAAC,EAAE,SAAS,EAAE,gBAAgB,EAAE,CAAC;+CACO"}
